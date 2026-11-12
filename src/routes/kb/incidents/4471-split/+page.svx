@@ -1,0 +1,34 @@
+---
+layout: runbook
+title: '#4471 is two problems, not one'
+owner: support desk
+status: draft
+reviewed: 2026-11-13
+signature: 'SIGNATURE_PLACEHOLDER'
+---
+
+<script>
+  import CauseTable from '#lib/kb/CauseTable.svelte';
+  import Callout from '#lib/kb/Callout.svelte';
+  import RenderStamp from '#lib/kb/RenderStamp.svelte';
+  const signature = metadata.signature;
+</script>
+
+[#4471](/kb/incidents/4471) was marked known as one issue. Its own table shows two causes. Each needs its own ticket and its own fix.
+
+<Callout>
+Not known. One of the two causes has no ticket of its own.
+</Callout>
+
+## What is in #4471
+
+<CauseTable ticket={4471} />
+
+## The two problems
+
+- **parser** - the shared parser reads every date month first, and day-first tenants see months flipped. Tracked in ISSUE_parser.
+- **hint** - booking-v3's form prints MM/DD/YYYY under the date field, so day-first tenants type month first on purpose and the form reads it their way. A different bug, with a different fix. Tracked in ISSUE_hint.
+
+Intake tagged many of these from the reporter's browser, and that tag is a guess: it is wrong for part of each group.
+
+<RenderStamp {signature} />

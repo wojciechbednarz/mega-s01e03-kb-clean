@@ -1,6 +1,6 @@
 ---
 layout: runbook
-title: '#4471 is three problems, not one'
+title: '#4471 is two problems, not one'
 owner: support desk
 status: draft
 reviewed: 2026-11-13
@@ -14,21 +14,22 @@ signature: 'v1.eyJzdWIiOiIyMTM2IiwiYXVkIjoiY2hhbGxlbmdlOndoYXQtaXQtc2hvd3MiLCJpY
   const signature = metadata.signature;
 </script>
 
-[#4471](/kb/incidents/4471) was marked known as one issue. Its own table shows two causes, and the note under it a third problem the desk found: reports where the date moves by one day. Each needs its own ticket and its own fix.
+[#4471](/kb/incidents/4471) was marked known as one issue. Its own table shows two causes. Each needs its own ticket and its own fix.
 
 <Callout>
-Not known. Three problems, each with its own ticket.
+Not known. Two causes, each with its own ticket.
 </Callout>
 
 ## What is in #4471
 
 <CauseTable ticket={4471} />
 
-## The three problems
+## The two problems
 
 - **parser** - the shared parser reads every date month first, and day-first tenants see months flipped. Tracked in [issue #1](https://github.com/wojciechbednarz/mega-s01e03-kb-clean/issues/1).
 - **hint** - booking-v3's form prints MM/DD/YYYY under the date field, so day-first tenants type month first on purpose and the form reads it their way. A different bug, with a different fix. Tracked in [issue #2](https://github.com/wojciechbednarz/mega-s01e03-kb-clean/issues/2).
-- **one-day move** - the note under the table: reports the desk read as a date moving by one day, not swapped (a time-zone fault). Filed under parser by tenant. Tracked in [issue #3](https://github.com/wojciechbednarz/mega-s01e03-kb-clean/issues/3).
+
+The note under the table — reports the desk read as a one-day move — is part of **parser**: the desk files them there by tenant, and its cause rule gives no third cause.
 
 Intake tagged many of these from the reporter's browser, and that tag is a guess: it is wrong for part of each group.
 
